@@ -1,6 +1,6 @@
 This project was created for the Robotics and Kinematics course.
 
-We developed it in a short time, so there are many mistakes and design issues. The most significant problem (best understood by viewing the project drawings in SolidWorks) is that the servo motors experience buckling due to the lack of bearings. This is a major issue but can be easily fixed by adding bearings with some basic drawing knowledge.
+We developed it in a short time, so there are many mistakes and design issues. The most significant problem (best understood by viewing the project drawings in SolidWorks) is that the servo motors experience bending due to the lack of bearings. This is a major issue but can be easily fixed by adding bearings with some basic drawing knowledge.
 
 Another major issue is that I used MATLAB instead of C++ for an exercise. However, MATLAB does not perform well in this case. For example, when selecting 200 clicks per second, the program lags due to MATLAB’s inefficiency in handling large matrix arrays. I have not resolved this issue yet, and perhaps another programming language would work better.
 
