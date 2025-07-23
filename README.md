@@ -1,34 +1,46 @@
-This project was created for the Robotics and Kinematics course.
+3 DOF Robotic Arm Controller, SCARA
 
-We developed it in a short time, so there are many mistakes and design issues. The most significant problem (best understood by viewing the project drawings in SolidWorks) is that the servo motors experience bending due to the lack of bearings. This is a major issue but can be easily fixed by adding bearings with some basic drawing knowledge.
+A 3-DOF robotic arm that draws user-input paths on paper, controlled via MATLAB and an Arduino. This project was developed for a Robotics and Kinematics course.
+How It Works
+- GUI: A MATLAB script creates a graphical interface for the user to draw on.
+- Path Input: The user holds the 'K' key and moves the mouse to draw a path. The (x, y) coordinates are stored in a matrix.
+- Inverse Kinematics: The script calculates the required servo motor angles (theta1, theta2) to reach each point in the path.
+- Execution: The calculated angles are sent to an Arduino, which controls the servo motors to draw the path on paper.
 
-Another major issue is that I used MATLAB instead of C++ for an exercise. However, MATLAB does not perform well in this case. For example, when selecting 200 clicks per second, the program lags due to MATLAB’s inefficiency in handling large matrix arrays. I have not resolved this issue yet, and perhaps another programming language would work better.
+Known Issues & Improvements
+- Mechanical Issue: The design lacks bearings on the joints. This causes the servo motor shafts to bend under load, which reduces drawing accuracy.
+-    Solution: Add bearings to the joints to improve stability and precision.
+- Software Issue: The control script is written in MATLAB, which causes significant performance lag when drawing high-density paths.
+-    Solution is for better performance, the controller should be re-written in a more suitable language for real-time tasks, such as C++ or Python.
 
-Components Used:
-3x Tower Pro MG995
-Tower Pro SG90
-Arduino UNO R3
-Breadboard
-5V Regulator
-Power Supply
-Project Schematics:
-Tinkercad: https://www.tinkercad.com/things/6sjXP0xfZ9F-robotik-projem
+Bill of Materials
+- 2 x Tower Pro MG995 Servo Motor
+- 1 x Tower Pro SG90 Servo Motor
+- Arduino UNO R3
+- 5V Regulator
+- External Power Supply
 
-How to Use:
-Set Up the Arduino
+Project Files
+- Tinkercad Schematic: https://www.tinkercad.com/things/6sjXP0xfZ9F-robotik-projem
+- SolidWorks Files: Should be reviewed to understand the mechanical assembly.
 
-Before running the code, open MATLAB and update the COM port in the script (I used COM6, but yours may be different).
-Check the Arduino pin connections and ensure they are correctly wired.
-Calibration
+How to Use
+1) Hardware Setup:
+- Connect the Arduino to your PC.
+- Ensure all wiring matches the project schematic.
+- It's recommended to first run a calibration script to set all servos to their zero/home position.
 
-Upload a simple degree-control code to the Arduino to ensure all servos are set to 0 degrees.
-Open the SolidWorks file to understand the assembly and working principle.
-Running the Program
+2) Run the MATLAB Script:
+- Open Robtik_Proje.m in MATLAB.
+- In the script, find the line ard = arduino('COM6', 'Uno'); and change 'COM6' to your Arduino's COM port.
+- Run the script.
 
-Connect the Arduino and run the program.
-The program will ask how many points to add per second; select a value between 10 and 50 (higher values may cause lag).
-A graph similar to an A4 sheet will appear.
-Click the left mouse button on the graph to draw, then press 'K' to confirm each point.
+3) Draw !:
+- The program will ask for point density. Use a value between 10-50 to avoid lag.
+- A GUI window will appear. To draw, hold down the 'K' key while moving your mouse over the window.
+- Release 'K' to finish a line segment. You can start a new one by pressing 'K' again.
+- Press the 'Escape' key to finalize the drawing and command the robot to start plotting.
+- 
 When finished, press 'Esc' to exit.
 The Arduino-controlled robot will replicate your drawing exactly.
 Enjoy your project!
