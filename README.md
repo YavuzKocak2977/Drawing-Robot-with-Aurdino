@@ -32,6 +32,7 @@ How to Use
 
 2) Run the MATLAB Script:
 - Open Robtik_Proje.m in MATLAB.
+- Be sure tusa_basma.m and tustan_cekme.m files are the in the same folder !!
 - In the script, find the line ard = arduino('COM6', 'Uno'); and change 'COM6' to your Arduino's COM port.
 - Run the script.
 
