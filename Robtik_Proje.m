@@ -1,10 +1,10 @@
 clc;
 clear;
 
-%ard = arduino('COM6', 'Uno'); %%% BU ADIM ÇOK ÖNEMLİ AURDİNOYU BİLGİSAYARA TAK SONRA İŞLEMLER BAŞLIYACAK!!!!
-%ser1= servo(ard, 'D9'); %%% Base servo
-%ser2 = servo(ard, 'D10'); %%% Bu ortadaki servo
-%ser3 = servo(ard, 'D12'); %%% En uçtaki servo
+ard = arduino('COM6', 'Uno'); %%% BU ADIM ÇOK ÖNEMLİ AURDİNOYU BİLGİSAYARA TAK SONRA İŞLEMLER BAŞLIYACAK!!!!
+ser1= servo(ard, 'D9'); %%% Base servo
+ser2 = servo(ard, 'D10'); %%% Bu ortadaki servo
+ser3 = servo(ard, 'D12'); %%% En uçtaki servo
 
 import java.awt.Robot;
 import java.awt.event.*;
